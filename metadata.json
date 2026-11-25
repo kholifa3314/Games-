@@ -1,0 +1,6 @@
+{
+  "name": "Flappy Guy",
+  "description": "A simple 2D endless arcade game where you tap or press Space to fly between pipes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

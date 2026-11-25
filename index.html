@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Flappy Guy</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <canvas id="game-canvas" aria-label="Endless arcade game canvas"></canvas>
+
+      <!-- Top HUD: Score + Pause -->
+      <div class="hud">
+        <div class="hud-spacer" aria-hidden="true"></div>
+        <div id="score-display" class="score-display" aria-live="polite">0</div>
+        <div class="hud-actions">
+          <button
+            id="pause-btn"
+            type="button"
+            class="btn btn-white hidden"
+            aria-label="Pause"
+          >
+            <svg viewBox="0 0 24 24" class="icon" fill="currentColor" aria-hidden="true">
+              <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+              <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+            </svg>
+            <span class="btn-label-desktop">Pause</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Ready Overlay: Play button -->
+      <div id="ready-overlay" class="overlay-center pointer-none">
+        <button id="play-btn" type="button" class="btn btn-play pointer-auto">
+          <svg viewBox="0 0 24 24" class="icon" fill="currentColor" aria-hidden="true">
+            <polygon points="6,4 20,12 6,20"></polygon>
+          </svg>
+          <span>Play</span>
+        </button>
+      </div>
+
+      <!-- Paused Overlay: Score + Play + Restart -->
+      <div id="paused-overlay" class="overlay-backdrop hidden">
+        <div class="modal-card">
+          <div id="paused-score" class="modal-score">0</div>
+          <div class="modal-buttons">
+            <button id="resume-btn" type="button" class="btn btn-green btn-full">
+              <svg viewBox="0 0 24 24" class="icon" fill="currentColor" aria-hidden="true">
+                <polygon points="6,4 20,12 6,20"></polygon>
+              </svg>
+              <span>Play</span>
+            </button>
+            <button id="paused-restart-btn" type="button" class="btn btn-amber btn-full">
+              <svg
+                viewBox="0 0 24 24"
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+              <span>Restart</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Over Overlay: Score + Restart -->
+      <div id="gameover-overlay" class="overlay-backdrop hidden">
+        <div class="modal-card">
+          <div id="gameover-score" class="modal-score modal-score-lg">0</div>
+          <button id="gameover-restart-btn" type="button" class="btn btn-amber btn-full">
+            <svg
+              viewBox="0 0 24 24"
+              class="icon"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+            <span>Restart</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="./character-asset.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>
